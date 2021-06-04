@@ -6,31 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!--    DOTO uncoment this to create new group-->
-<!--    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
-<!--        android:id="@+id/createGroup"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:backgroundTint="#028BD5"-->
-<!--        android:paddingHorizontal="20dp"-->
-<!--        android:paddingVertical="10dp"-->
-<!--        android:text="Create New Group"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:textColor="#fff"-->
-<!--        android:textSize="20sp"-->
-<!--        app:iconPadding="10dp"-->
-<!--        app:iconSize="20dp" />-->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/createGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#028BD5"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="Create New Group"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:iconPadding="10dp"
+        app:iconSize="20dp" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/groupNameTV"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginTop="100dp"-->
-<!--        android:text="Group Name:"-->
-<!--        android:textSize="18sp" />-->
+    <TextView
+        android:id="@+id/groupNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:text="Group Name:"
+        android:textSize="18sp" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/yesButton"

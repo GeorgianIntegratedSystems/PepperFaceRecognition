@@ -4,12 +4,14 @@ import android.util.Log.d
 import edmt.dev.edmtdevcognitiveface.Contract.TrainingStatus
 import edmt.dev.edmtdevcognitiveface.FaceServiceRestClient
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.InputStream
 
 
-class AddPersonGroupTask {
+class AddPersonGroupTask: CoroutineScope by CoroutineScope(IO) {
 
     var faceServiceClient: FaceServiceRestClient = FaceServiceRestClient(
         "https://pepperrecognition.cognitiveservices.azure.com/face/v1.0",
@@ -18,7 +20,7 @@ class AddPersonGroupTask {
 
     fun createPersonGroup(personGroupId: String, PersonGroupName: String) {
 
-        CoroutineScope(IO).launch {
+        launch {
             try {
                 faceServiceClient.createPersonGroup(personGroupId, PersonGroupName, null)
                 d("TAG1", "Create Person Group Succeed")
@@ -30,7 +32,7 @@ class AddPersonGroupTask {
 
     fun addPersonToGroup(personGroupId: String, personGroupName: String, imagePath: InputStream) {
         d("TAG1", imagePath.toString())
-        CoroutineScope(IO).launch {
+        launch {
             try {
                 faceServiceClient.getPersonGroup(personGroupId)
                 d("TAG1", imagePath.toString())
@@ -58,20 +60,18 @@ class AddPersonGroupTask {
 
     fun trainingAi(personGroupId: String) {
         var training: TrainingStatus? = null
-        CoroutineScope(IO).launch {
+        launch {
             d("groupid", personGroupId)
             d("groupid", personGroupId)
-
             while (true) {
-                training = faceServiceClient.getPersonGroupTrainingStatus(personGroupId)
                 d("trainingStatus", faceServiceClient.toString())
+                training = faceServiceClient.getPersonGroupTrainingStatus(personGroupId)
                 if (training!!.status != TrainingStatus.Status.Running) {
                     d("TAG", "Status: ${training!!.status}")
                     break
                 }
                 d("TAG", "Waiting for training Ai...")
-                android.os.Handler().postDelayed({
-                }, 1000)
+                delay(1000)
             }
         }
 

@@ -8,3 +8,6 @@ u2:([yes sure]) ok, please take picture, and enter your name. %YES
 u2:([no nope]) ok, no problem %NO
 
 
+u:(add me to group)%YES
+
+
