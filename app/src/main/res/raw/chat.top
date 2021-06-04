@@ -1,0 +1,10 @@
+topic: ~chat()
+
+proposal: %detected "Hello $var"
+proposal: %unknown ^rand["$cant_see" "I need more light to see you" "it's little dark Here!"]
+proposal: %cant_identify "$unknown_customer, What is your name?"
+u1:(_*) nice to meet you $1, Do you want to add in our database? %ASK_ADD
+u2:([yes sure]) ok, please take picture, and enter your name. %YES
+u2:([no nope]) ok, no problem %NO
+
+
